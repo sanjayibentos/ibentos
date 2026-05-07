@@ -1,0 +1,363 @@
+/* Reset + base */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 40px 0;
+}
+
+/* Navbar */
+.navbar {
+    background: #1e1e2f;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Underline hover */
+.menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #00d4ff;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+.menu li a.active {
+    color: #00d4ff;
+}
+
+/* Hero Section */
+.hero {
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #00d4ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #009ec3;
+}
+
+/* Cards layout (GRID 🔥) */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    color: #666;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card actions */
+.card-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit button */
+.edit-btn {
+    background: #00d4ff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.edit-btn:hover {
+    background: #009ec3;
+}
+
+/* Delete button */
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+
+/* Footer */
+.footer {
+    background: #1e1e2f;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
+/* Success message */
+.alert-success {
+    background: #e6fffa;
+    color: #065f46;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.empty-state p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.footer {
+    background: #1e1e2f;
+    color: #ccc;
+    margin-top: 60px;
+}
+
+/* Layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 50px;
+}
+
+/* Sections */
+.footer-section h3,
+.footer-section h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 14px;
+}
+
+/* Links */
+.footer-section a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-section a:hover {
+    color: #00d4ff;
+}
+
+/* Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+}
+/* Navbar layout */
+.navbar {
+    background: #1e1e2f;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Links */
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Active + underline */
+.menu li a.active {
+    color: #00d4ff;
+}
+.menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #00d4ff;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+.menu li a:hover::after {
+    width: 100%;
+}
+
+/* CTA button */
+.nav-btn {
+    background: #00d4ff;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+.nav-btn:hover {
+    background: #009ec3;
+}
+
+/* Search */
+.nav-search input {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.nav-search input:focus {
+    box-shadow: 0 0 5px rgba(0,212,255,0.6);
+}
+
+/* Mobile toggle */
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #1e1e2f;
+        width: 100%;
+        display: none;
+        padding: 20px;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
