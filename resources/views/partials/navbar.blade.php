@@ -1,6 +1,7 @@
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 
-    <!-- Left navbar -->
+    <!-- Left Navbar -->
     <ul class="navbar-nav">
 
         <!-- Sidebar Toggle -->
@@ -17,42 +18,52 @@
 
         </li>
 
-        <!-- Home -->
-        <li class="nav-item d-none d-sm-inline-block">
+        <!-- Search Bar -->
+        <li class="nav-item ml-3">
 
-            <a href="/dashboard"
-               class="nav-link">
+            <form class="form-inline">
 
-                Home
+                <div class="input-group input-group-sm">
 
-            </a>
+                    <input class="form-control form-control-navbar"
+                           type="search"
+                           placeholder="Search here...">
 
-        </li>
+                    <div class="input-group-append">
 
-        <!-- Contact -->
-        <li class="nav-item d-none d-sm-inline-block">
+                        <button class="btn btn-navbar"
+                                type="submit">
 
-            <a href="/contact"
-               class="nav-link">
+                            <i class="fas fa-search"></i>
 
-                Contact
+                        </button>
 
-            </a>
+                    </div>
+
+                </div>
+
+            </form>
 
         </li>
 
     </ul>
 
-    <!-- Right navbar -->
+    <!-- Right Navbar -->
     <ul class="navbar-nav ml-auto">
 
-        <!-- Search -->
-        <li class="nav-item">
+        <!-- Notifications -->
+        <li class="nav-item dropdown">
 
             <a class="nav-link"
                href="#">
 
-                <i class="fas fa-search"></i>
+                <i class="far fa-bell"></i>
+
+                <span class="badge badge-warning navbar-badge">
+
+                    5
+
+                </span>
 
             </a>
 
@@ -67,23 +78,9 @@
                 <i class="far fa-comments"></i>
 
                 <span class="badge badge-danger navbar-badge">
+
                     3
-                </span>
 
-            </a>
-
-        </li>
-
-        <!-- Notifications -->
-        <li class="nav-item dropdown">
-
-            <a class="nav-link"
-               href="#">
-
-                <i class="far fa-bell"></i>
-
-                <span class="badge badge-warning navbar-badge">
-                    15
                 </span>
 
             </a>
@@ -111,14 +108,25 @@
                class="nav-link dropdown-toggle"
                data-toggle="dropdown">
 
-                <img src="{{ asset('image/user.png') }}"
-                    class="user-image img-circle elevation-2"
-                    alt="User Image">
+                <!-- User Image -->
+                <img src="{{ session('user_image')
+                        ? asset('uploads/' . session('user_image'))
+                        : asset('image/user.png') }}"
 
+                     class="user-image img-circle elevation-2"
+                     alt="User Image">
+
+                <!-- Username -->
                 <span class="d-none d-md-inline">
 
                     @if(session()->has('user_id'))
+
                         {{ session('user_name') }}
+
+                    @else
+
+                        Guest User
+
                     @endif
 
                 </span>
@@ -131,27 +139,41 @@
                 <!-- User Header -->
                 <li class="user-header bg-primary">
 
-                    <img src="https://i.pravatar.cc/150"
+                    <!-- Profile Image -->
+                    <img src="{{ session('user_image')
+                            ? asset('uploads/' . session('user_image'))
+                            : asset('image/user.png') }}"
+
                          class="img-circle elevation-2"
                          alt="User Image">
 
+                    <!-- User Info -->
                     <p>
 
                         @if(session()->has('user_id'))
+
                             {{ session('user_name') }}
+
+                        @else
+
+                            Guest User
+
                         @endif
 
                         <small>
-                            Laravel Admin User
+
+                            Laravel Admin
+
                         </small>
 
                     </p>
 
                 </li>
 
-                <!-- Footer -->
+                <!-- Menu Footer -->
                 <li class="user-footer">
 
+                    <!-- Profile Button -->
                     <a href="/profile"
                        class="btn btn-default btn-flat">
 
@@ -159,6 +181,7 @@
 
                     </a>
 
+                    <!-- Logout -->
                     <form method="POST"
                           action="/logout"
                           style="display:inline; float:right;">

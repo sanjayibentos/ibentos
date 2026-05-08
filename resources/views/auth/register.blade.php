@@ -71,7 +71,8 @@
 
             <!-- Form -->
             <form method="POST"
-                  action="/register">
+                  action="/register"
+                  enctype="multipart/form-data">
 
                 @csrf
 
@@ -137,7 +138,26 @@
 
                 </div>
 
-                <!-- Button -->
+                <!-- Profile Image -->
+                <div class="input-group mb-3">
+
+                    <input type="file"
+                           name="profile_image"
+                           class="form-control">
+
+                    <div class="input-group-append">
+
+                        <div class="input-group-text">
+
+                            <span class="fas fa-image"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Terms -->
                 <div class="row">
 
                     <div class="col-8">

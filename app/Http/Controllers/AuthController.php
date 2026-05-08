@@ -26,10 +26,28 @@ class AuthController extends Controller
 
             'email' => 'required|email|unique:users',
 
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
 
         ]);
 
+        // Image Upload
+        $imageName = null;
+
+        if ($req->hasFile('profile_image'))
+        {
+            $image = $req->file('profile_image');
+
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+            $image->move(
+                public_path('uploads'),
+                $imageName
+            );
+        }
+
+        // Save User
         User::create([
 
             'name' => $req->name,
@@ -38,7 +56,9 @@ class AuthController extends Controller
 
             'password' => Hash::make(
                 $req->password
-            )
+            ),
+
+            'profile_image' => $imageName
 
         ]);
 
@@ -66,22 +86,22 @@ class AuthController extends Controller
 
         ]);
 
-        // Find user
+        // Find User
         $user = User::where(
             'email',
             $req->email
         )->first();
 
-        // Check user exists
-        if ($user) {
-
-            // Verify password
+        // Check User Exists
+        if ($user)
+        {
+            // Verify Password
             if (Hash::check(
                 $req->password,
                 $user->password
-            )) {
-
-                // Create session
+            ))
+            {
+                // Create Session
                 Session::put(
                     'user_id',
                     $user->id
@@ -92,10 +112,13 @@ class AuthController extends Controller
                     $user->name
                 );
 
+                Session::put(
+                    'user_image',
+                    $user->profile_image
+                );
+
                 return redirect('/dashboard');
-
             }
-
         }
 
         return back()->with(

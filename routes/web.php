@@ -8,6 +8,7 @@ use App\Http\Controllers\PageController;
 use App\Models\Post;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 /*
 
@@ -150,7 +151,7 @@ Route::get('/dashboard',
 
 
 // Profile
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 
 Route::get('/profile',
     [ProfileController::class, 'index'])

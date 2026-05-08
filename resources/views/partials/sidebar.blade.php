@@ -1,25 +1,25 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-   <!-- Brand Logo -->
-<a href="/dashboard"
-   class="brand-link d-flex align-items-center justify-content-center">
+    <!-- Brand Logo -->
+    <a href="/dashboard"
+       class="brand-link d-flex align-items-center justify-content-center">
 
-    <!-- Logo -->
-    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mr-2"
-         style="width:40px; height:40px;">
+        <!-- Logo -->
+        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mr-2"
+             style="width:40px; height:40px;">
 
-        <i class="fas fa-shield-alt text-white"></i>
+            <i class="fas fa-shield-alt text-white"></i>
 
-    </div>
+        </div>
 
-    <!-- Text -->
-    <span class="brand-text font-weight-bold text-white">
+        <!-- Text -->
+        <span class="brand-text font-weight-bold text-white">
 
-        My Admin
+            My Admin
 
-    </span>
+        </span>
 
-</a>
+    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -27,20 +27,33 @@
         <!-- User Panel -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
+            <!-- User Image -->
             <div class="image">
-            <img src="{{ asset('image/user.png') }}"
-                class="img-circle elevation-2"
-                alt="User Image">
+
+                <img src="{{ session('user_image') 
+                        ? asset('uploads/' . session('user_image')) 
+                        : asset('image/user.png') }}"
+
+                     class="img-circle elevation-2"
+                     alt="User Image"
+                     style="width:35px; height:35px; object-fit:cover;">
 
             </div>
 
+            <!-- User Name -->
             <div class="info">
 
                 <a href="#"
                    class="d-block">
 
                     @if(session()->has('user_id'))
+
                         {{ session('user_name') }}
+
+                    @else
+
+                        Guest User
+
                     @endif
 
                 </a>
